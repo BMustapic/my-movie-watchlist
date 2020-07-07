@@ -1,0 +1,16 @@
+<app-search-movie (searchMovies)="searchMovies($event)"></app-search-movie>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Movie title</th>
+            <th>Date of release</th>
+            <th>Movie poster</th>
+            <th>Overview</th>
+            <th>Average vote</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody app-movie-item *ngFor="let movie of movies" [movie]="movie">
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Movie title</th>
+            <th>Date of release</th>
+            <th>Movie poster</th>
+            <th>Overview</th>
+            <th>Average vote</th>
+            <th>Your comment</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody
+        *ngFor="let saved of savedMovies"
+    >
+        <tr>
+            <td> {{saved.movie.title}} </td>
+            <td> {{saved.movie.release_date | date}} </td>
+            <td> <img class="img-fluid" src="https://image.tmdb.org/t/p/w500{{saved.movie.poster_path}}" alt=" {{saved.movie.title}} "></td>
+            <td> {{saved.movie.overview}} </td>
+            <td> {{saved.movie.vote_average}} </td>
+            <td>  {{saved.comment}} </td>
+            <td> <button class="btn btn-danger" (click)="removeSaved(saved)">&times;</button> </td>
+        </tr>
+    </tbody>
+</table>

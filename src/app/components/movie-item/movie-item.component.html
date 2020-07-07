@@ -1,0 +1,10 @@
+<tr>
+    <td> {{movie.title}} </td>
+    <td> {{movie.release_date | date}} </td>
+    <td> <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.title}}" class="img-fluid"> </td>
+    <td> {{movie.overview}} </td>
+    <td> {{movie.vote_average}} </td>
+    <td> <button (click)="onSave(movie)" data-toggle="modal" data-target="#modal_1" class="btn btn-info">Save to <i>My List</i></button> </td>
+
+    <app-save-movie [movieToSave]="movie" *ngIf="save"></app-save-movie>
+</tr>
