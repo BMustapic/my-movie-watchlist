@@ -13,6 +13,7 @@ export class MovieService {
 
   private _savedMovies: Saved[] = [];
   private _movieToSave: Movie = new Movie();
+  private index: number = 0;
 
   addMovieToSave(movie: Movie): void {
     this._movieToSave = movie;
@@ -49,4 +50,26 @@ export class MovieService {
       : this.httpClient.get<Results>(
           `${this.searchMoviesUrl}?${this.apiKey}&query=${title}`
         )
+
+  sortByHeader = (sortString: string) => {
+    this.index = this.counterToTwo(this.index);
+    const sortingDirection =
+      this.index === 0
+        ? ''
+        : this.index === 1
+        ? `&sort_by=${sortString}.desc`
+        : `&sort_by=${sortString}.asc`;
+    console.log(sortingDirection);
+    return this.httpClient.get<Results>(
+      `${this.recommendedMoviesUrl}?${this.apiKey}${sortingDirection}`
+    );
+  }
+
+  counterToTwo = (num: number) => {
+    if (num + 1 > 2) {
+      return 0;
+    } else {
+      return num + 1;
+    }
+  }
 }

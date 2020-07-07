@@ -24,4 +24,10 @@ export class MovieListComponent implements OnInit {
       this.movies = movies.results;
     });
   }
+
+  sortByHeader = (sortString: string) => {
+    this.movieService.sortByHeader(sortString).subscribe((movies) => {
+      this.movies = movies.results;
+    });
+  }
 }

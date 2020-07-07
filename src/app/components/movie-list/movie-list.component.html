@@ -3,11 +3,11 @@
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th>Movie title</th>
-            <th>Date of release</th>
+            <th (click)="sortByHeader('original_title')">Movie title</th>
+            <th (click)="sortByHeader('release_date')">Date of release</th>
             <th>Movie poster</th>
             <th>Overview</th>
-            <th>Average vote</th>
+            <th (click)="sortByHeader('vote_average')">Average vote</th>
             <th></th>
         </tr>
     </thead>

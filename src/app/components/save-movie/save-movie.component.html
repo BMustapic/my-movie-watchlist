@@ -2,7 +2,9 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title"> {{movieToSave.title}} </div>
+                <div class="modal-title text-center">
+                    <h3 class="text-uppercase"> {{movieToSave.title}} </h3>
+                </div>
                 <button class="close" type="button" data-dismiss="modal" id="modal_closing">&times;</button>
             </div>
 
@@ -12,20 +14,16 @@
                     <div class="card-header">
                         Release date: {{movieToSave.release_date | date}}
                     </div>
-                    <img src="https://image.tmdb.org/t/p/w500{{movieToSave.poster_path}}" alt="{{movieToSave.title}}" class="card-img-top">
+                    <img src="https://image.tmdb.org/t/p/w500{{movieToSave.poster_path}}" alt="{{movieToSave.title}}"
+                        class="card-img-top">
                     <div class="card-body">
                         <p class="card-text"> {{movieToSave.overview}} </p>
                         <h6 class="card-title">Add a comment: </h6>
-                        <textarea class="form-control" name="comment" [(ngModel)]="comment" cols="30" rows="10"></textarea>
+                        <textarea class="form-control" name="comment" [(ngModel)]="comment" cols="30"
+                            rows="10"></textarea>
                     </div>
                     <div class="card-footer text-muted"> Average Vote: {{movieToSave.vote_average}} </div>
                 </div>
-
-                <!-- <div> {{movieToSave.release_date | date}} </div>
-                <div> <img src="https://image.tmdb.org/t/p/w200{{movieToSave.poster_path}}" alt=" {{movieToSave.title}} "> </div>
-                <div> {{movieToSave.overview}} </div>
-                <div>{{movieToSave.vote_average}} </div>
-                <textarea class="form-control" name="comment" [(ngModel)]="comment" cols="30" rows="10"></textarea> -->
             </div>
 
             <div class="modal-footer">
